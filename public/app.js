@@ -13,7 +13,6 @@ $('#updateButton').click(function(e){
 function getPhrases(){
 	$.get('/phrases', function(req, res){
 		var template = _.template($('#phrase_template').html());
-		console.log(req);
 		req.forEach(function(phrase){
 			$('#phrase_placeholder').append(template(phrase));
 		});
@@ -23,7 +22,6 @@ function getPhrases(){
 //sends the ID of the word to be deleted as a URL parameter via AJAX DELETE.
 //refreshes page after delete has been perfromed
 function deleteWord(context){
-	console.log($(context).data()._id);
 	$.ajax({
 		url: "/phrases/" + $(context).data()._id,
 		type: "DELETE",
@@ -52,3 +50,23 @@ function updateWord(){
 		}
 	})
 }
+
+function toggleHide(divId){
+	$(divId).toggleClass('hidden');
+};
+
+function addGreen(liId){
+	var idString = "#" + liId;
+	$(idString).removeClass('red');
+	$(idString).addClass('green');
+};
+
+function addRed(liId){
+	var idString = "#" + liId;
+	$(idString).removeClass('green');
+	$(idString).addClass('red');
+};
+
+
+
+

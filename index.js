@@ -40,7 +40,6 @@ app.post('/phrases', function(req, res){
 });
 
 app.delete('/phrases/:id', function(req, res){
-	console.log(req.params.id);
 	db.Phrase.remove({_id: req.params.id}, function(err, result){
 		if(err){
 			console.log(err);
@@ -50,7 +49,6 @@ app.delete('/phrases/:id', function(req, res){
 });
 
 app.put('/phrases', function(req, res){
-	console.log(req.body);
 	db.Phrase.update({word: req.body.word}, req.body, function(err, result){
 		if(err){
 			console.log(err);

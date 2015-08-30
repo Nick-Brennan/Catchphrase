@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>MongoosechPhrase</title>
+	<title>DEFINE(it)LY</title>
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="static/main.css">
 	<script type="text/javascript" src="vendor/jquery/dist/jquery.min.js"></script>
@@ -12,7 +12,7 @@
 <body>
 	<div class="container">
 		<div class="page-header">
-			<h1 class="text-center">MONGOOSEchPHRASE</h1>
+			<h1 class="text-center">DEFINE(it)LY</h1>
 		</div>
 		<ul id="phrase_placeholder" class="list-group"></ul>
 		<br>
@@ -33,13 +33,14 @@
 		<hr><hr><br><br>
 	</div>
 	<script type="text/template" id="phrase_template">
-		<li class="list-group-item">
+		<li class="list-group-item" id="<%=_id%>">
+		<button class="button btn-xs pull-right" id="showButton" onclick="toggleHide(<%=word%>)">Show/Hide</botton>
 		<button class="btn btn-xs pull-right" id="deleteButton" data-_id='<%=_id%>' onclick="deleteWord(this)"><span class="close">X</span></button> 
 		<h3><%=word%> :</h3>
-		<div> <%=definition%></div>
-		<button class="btn btn-sm pull-left" data-id='<%=_id%>'><span class="glyphicon glyphicon-thumbs-up"></span></button>
-		<button class="btn btn-sm pull-left" data-id='<%=_id%>'><span class="glyphicon glyphicon-thumbs-down"></span></button>
-
+		<div id="<%=word%>" class="hidden"><div> <%=definition%></div>
+		<button class="btn btn-sm pull-left" onclick="addGreen('<%=_id%>')"><span class="glyphicon glyphicon-thumbs-up"></span></button>
+		<button class="btn btn-sm pull-left" onclick="addRed('<%=_id%>')"><span class="glyphicon glyphicon-thumbs-down"></span></button>
+		</div>
 		</li><br><br>
 	</script>
 </body>

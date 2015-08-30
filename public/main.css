@@ -9,3 +9,11 @@ button{
 #deleteButton{
 	vertical-align: top;
 }
+
+.red{
+	background-color: #F28181;
+}
+
+.green{
+	background-color: #95ED95;
+}
