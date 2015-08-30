@@ -1,3 +1,4 @@
+//setting up dependencies
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
@@ -5,11 +6,16 @@ var path = require('path');
 var views = path.join(process.cwd(), "views/");
 var db = require('./models');
 
+//config body-parser
 app.use(bodyParser.urlencoded({ extended: true }));
 
+//setting up path aliases for client-side resources
 app.use("/static", express.static("public"));
 app.use("/vendor", express.static("bower_components"));
 
+///////////////////////////////
+//ROUTES
+///////////////////////////////
 app.get('/', function(req, res){
 	res.sendFile(views + "index.html");
 });
@@ -33,10 +39,6 @@ app.post('/phrases', function(req, res){
 	});
 });
 
-app.listen(3004, function(){
-	console.log("listening on port 3004");
-});
-
 app.delete('/phrases/:id', function(req, res){
 	console.log(req.params.id);
 	db.Phrase.remove({_id: req.params.id}, function(err, result){
@@ -55,9 +57,9 @@ app.put('/phrases', function(req, res){
 		}
 		res.send(result);
 	});
-})
+});
 
-// var phrases = [
-// {word: "Array", definition: "A collection ordered by index (0 based)"},
-// {word: "CSS", definition: "Cascading Style Sheet"}
-// ];
+//START EXPRESS SERVER
+app.listen(3004, function(){
+	console.log("listening on port 3004");
+});
