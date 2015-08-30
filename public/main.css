@@ -1,3 +1,11 @@
 .hidden{
 	display: none;
 }
+
+button{
+	margin-right: 2px;
+}
+
+#deleteButton{
+	vertical-align: top;
+}
