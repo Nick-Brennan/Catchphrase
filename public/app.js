@@ -48,9 +48,10 @@ function updateWord(){
 		success: function(){
 			window.location.reload();
 		}
-	})
-}
+	});
+};
 
+//Presentation functions
 function toggleHide(divId){
 	$(divId).toggleClass('hidden');
 };
